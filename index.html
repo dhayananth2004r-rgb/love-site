@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>BABY ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  margin: 0;
+  background: black;
+  color: red;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+#msg {
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.heart {
+  position: absolute;
+  animation: float 4s linear;
+  cursor: pointer;
+}
+
+@keyframes float {
+  from { top: 100vh; opacity: 1; }
+  to { top: -10vh; opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<div id="msg"></div>
+
+<script>
+// PASSWORD (VERY STABLE)
+const PASSWORD = "0403080406";
+let input = prompt("Enter the secret password 💖");
+
+if (input !== PASSWORD) {
+  document.body.innerHTML =
+    "<h2 style='color:white'>Wrong Password 😢</h2>";
+  throw "";
+}
+
+// TYPE EFFECT
+const text = "BABY ❤️\nI LOVE YOU SOOOOOOOO MUCH 💖";
+let i = 0;
+function typeText() {
+  if (i < text.length) {
+    msg.innerHTML += text[i] === "\n" ? "<br>" : text[i];
+    i++;
+    setTimeout(typeText, 100);
+  }
+}
+typeText();
+
+// FLOATING HEARTS
+setInterval(() => {
+  const h = document.createElement("div");
+  h.className = "heart";
+  h.innerHTML = "❤️";
+  h.style.left = Math.random() * 100 + "vw";
+  h.style.fontSize = 20 + Math.random() * 30 + "px";
+  h.onclick = () => h.remove();
+  document.body.appendChild(h);
+  setTimeout(() => h.remove(), 4000);
+}, 300);
+</script>
+
+</body>
+</html>
