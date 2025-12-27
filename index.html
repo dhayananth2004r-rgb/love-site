@@ -34,7 +34,50 @@ body {
   from { top: 100vh; opacity: 1; }
   to { top: -10vh; opacity: 0; }
 }
+<style>
+/* Custom fonts */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;700&display=swap');
+
+body {
+  margin: 0;
+  background: black;
+  color: #ff1493; /* pinkish red */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Pacifico', cursive;
+  overflow: hidden;
+}
+
+#msg {
+  font-size: 2.5rem;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+.heart {
+  position: absolute;
+  animation: float 4s linear;
+  cursor: pointer;
+}
+
+@keyframes float {
+  from { top: 100vh; opacity: 1; }
+  to { top: -10vh; opacity: 0; }
+}
+
+/* Mobile tweaks */
+@media (max-width: 600px) {
+  #msg {
+    font-size: 1.5rem;
+  }
+  .heart {
+    font-size: 18px;
+  }
+}
 </style>
+
 </head>
 
 <body>
