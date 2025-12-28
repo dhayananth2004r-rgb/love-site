@@ -1,47 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <meta charset="UTF-8">
 <title>BABY ❤️</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
 <style>
 body {
   margin: 0;
-  background: black;
-  color: red;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: Arial, sans-serif;
-  overflow: hidden;
-}
-
-#msg {
-  font-size: 2.5rem;
-  text-align: center;
-}
-
-.heart {
-  position: absolute;
-  animation: float 4s linear;
-  cursor: pointer;
-}
-
-@keyframes float {
-  from { top: 100vh; opacity: 1; }
-  to { top: -10vh; opacity: 0; }
-}
-<style>
-/* Custom fonts */
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;700&display=swap');
-
-body {
-  margin: 0;
-  background: black;
-  color: #ff1493; /* pinkish red */
+  background: url("bg.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: #ff1493;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -50,12 +22,16 @@ body {
   overflow: hidden;
 }
 
+/* Message text */
 #msg {
   font-size: 2.5rem;
   text-align: center;
   font-family: 'Roboto', sans-serif;
+  padding: 20px;
+  text-shadow: 2px 2px 6px black;
 }
 
+/* Floating hearts */
 .heart {
   position: absolute;
   animation: float 4s linear;
@@ -67,7 +43,7 @@ body {
   to { top: -10vh; opacity: 0; }
 }
 
-/* Mobile tweaks */
+/* Mobile adjustments */
 @media (max-width: 600px) {
   #msg {
     font-size: 1.5rem;
@@ -77,7 +53,6 @@ body {
   }
 }
 </style>
-
 </head>
 
 <body>
@@ -85,24 +60,30 @@ body {
 <div id="msg"></div>
 
 <script>
-// PASSWORD (VERY STABLE)
+// PASSWORD
 const PASSWORD = "0403080406";
 let input = prompt("Enter the secret password 💖");
 
 if (input !== PASSWORD) {
   document.body.innerHTML =
-    "<h2 style='color:white'>Wrong Password 😢 Try again you can do it😉 </h2>";
+    "<h2 style='color:white;text-align:center'>Wrong Password 😢<br>Try again, don't give up on me 😉</h2>";
   throw "";
 }
 
 // TYPE EFFECT
-const text = "BABY ❤️\nI LOVE YOU SOOOOOOOO MUCH 💖 YOU ARE THE MOST PRECIOUS GIFT I HAVE GOT AND I AM REALLY PROUD OF YOU";
+const text = `BABY ❤️
+I LOVE YOU SOOOOOOOO MUCH 💖
+YOU ARE THE MOST PRECIOUS GIFT I HAVE GOT
+AND I AM REALLY PROUD OF YOU`;
+
 let i = 0;
+const msg = document.getElementById("msg");
+
 function typeText() {
   if (i < text.length) {
     msg.innerHTML += text[i] === "\n" ? "<br>" : text[i];
     i++;
-    setTimeout(typeText, 100);
+    setTimeout(typeText, 80);
   }
 }
 typeText();
